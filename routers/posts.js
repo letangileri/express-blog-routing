@@ -2,41 +2,41 @@ const express = require('express');
 const router = express.Router();
 
 const post = [
-    // {
-    //     id: 1,
-    //     titolo:"Ciambellone",
-    //     contenuto:"ciambella",
-    //     immagine:"images/ciambellone.jpeg",
-    //     tag:["casa", "dolce"]
-    // },
-    // {
-    //     id: 2,
-    //     titolo:"Cracker_barbabietola",
-    //     contenuto:"Cracker",
-    //     immagine:"images/cracker_barbabietola.jpeg",
-    //     tag:["casa", "dolce"]
-    // },
-    // {
-    //     id: 3,
-    //     titolo:"Pane fritto dolce",
-    //     contenuto:"Pane fritto",
-    //     immagine:"images/pane_fritto_dolce.jpeg",
-    //     tag:["casa", "dolce"]
-    // },
-    // {
-    //     id: 4,
-    //     titolo:"Pasta barbabietola",
-    //     contenuto:"pasta",
-    //     immagine:"images/pasta_barbarbietola.jpeg",
-    //     tag:["casa", "dolce"]
-    // },
-    // {
-    //     id: 5,
-    //     titolo:"Torta paesana",
-    //     contenuto:"torta",
-    //     immagine:"images/torta_paesana.jpeg",
-    //     tag:["casa", "dolce"]
-    // }
+    {
+        id: 1,
+        titolo:"Ciambellone",
+        contenuto:"ciambella",
+        immagine:"images/ciambellone.jpeg",
+        tag:["casa", "dolce"]
+    },
+    {
+        id: 2,
+        titolo:"Cracker_barbabietola",
+        contenuto:"Cracker",
+        immagine:"images/cracker_barbabietola.jpeg",
+        tag:["casa", "dolce"]
+    },
+    {
+        id: 3,
+        titolo:"Pane fritto dolce",
+        contenuto:"Pane fritto",
+        immagine:"images/pane_fritto_dolce.jpeg",
+        tag:["casa", "dolce"]
+    },
+    {
+        id: 4,
+        titolo:"Pasta barbabietola",
+        contenuto:"pasta",
+        immagine:"images/pasta_barbarbietola.jpeg",
+        tag:["casa", "dolce"]
+    },
+    {
+        id: 5,
+        titolo:"Torta paesana",
+        contenuto:"torta",
+        immagine:"images/torta_paesana.jpeg",
+        tag:["casa", "dolce"]
+    }
 ]
 
 //CRUD (Index, Show, Create, Update e Delete)
@@ -90,23 +90,21 @@ router.get('/:id/', (req, res)=>{
 //store
 router.post('/',(req, res)=>{
     const ultimoOggetto =  post[post.length - 1];
-    const newPostId = !post ? console.log("array vuoto") : ultimoOggetto
+    
+    const newPostId = post.length == 0 ? post.length+1 : (post[post.length - 1].id)+1
 
     console.log(newPostId);
-    // const newPostId = (ultimoOggetto.id)+1;
-    // const newPostIdArrayVoid = post[0]
 
-    // const newPost = {        
-    //     id: newPostId,
-    //     titolo:"Tiramisu",
-    //     contenuto:"tiramisuuu",
-    //     immagine:"images/ciambellone.jpeg",
-    //     tag:["ristorante", "dolce"]
-    // }
+
+    const newPost = {        
+        id: newPostId,
+        titolo:"Tiramisu",
+        contenuto:"tiramisuuu",
+        immagine:"images/ciambellone.jpeg",
+        tag:["ristorante", "dolce"]
+    }
     
-    // // !post ? post[] : newPostId
-
-    // post.push(newPost)
+    post.push(newPost)
 
     //console.log((ultimoOggetto.id)+1);
     res.json(post)
