@@ -88,11 +88,8 @@ router.get('/:id/', (req, res)=>{
 
 //creare un nuovo elemento
 //store
-router.post('/',(req, res)=>{
-    const ultimoOggetto =  post[post.length - 1];
-    
+router.post('/',(req, res)=>{    
     const newPostId = post.length == 0 ? post.length+1 : (post[post.length - 1].id)+1
-
     console.log(newPostId);
 
 
