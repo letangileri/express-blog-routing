@@ -51,10 +51,10 @@ const post = [
 //     res.send('single element');
 // })
 
-//create
-router.post('/',(req, res)=>{
-    res.send('create new element')
-})
+// //create
+// router.post('/',(req, res)=>{
+//     res.send('create new element')
+// })
 
 //update
 router.put('/:id/', (req,res)=>{
@@ -85,5 +85,20 @@ router.get('/:id/', (req, res)=>{
         res.json(specifyObj);
     }
 })
+
+//creare un nuovo elemento
+//store
+router.post('/',(req, res)=>{
+    post.push({
+            id: 6,
+            titolo:"Tiramisu",
+            contenuto:"tiramisuuu",
+            immagine:"images/ciambellone.jpeg",
+            tag:["ristorante", "dolce"]
+    });
+    res.json(post)
+})
+
+
 
 module.exports = router
