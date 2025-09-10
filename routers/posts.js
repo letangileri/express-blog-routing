@@ -90,16 +90,18 @@ router.get('/:id/', (req, res)=>{
 //store
 router.post('/',(req, res)=>{
     const ultimoOggetto =  post[post.length - 1];
+
+    const newPost = {        
+        id: (ultimoOggetto.id)+1,
+        titolo:"Tiramisu",
+        contenuto:"tiramisuuu",
+        immagine:"images/ciambellone.jpeg",
+        tag:["ristorante", "dolce"]
+    }
+    
+    const newPostId = !post ? console.log("non ho trovato nessun post") : post.push(newPost)
+
     //console.log((ultimoOggetto.id)+1);
-    
-    
-    post.push({
-            id: (ultimoOggetto.id)+1,
-            titolo:"Tiramisu",
-            contenuto:"tiramisuuu",
-            immagine:"images/ciambellone.jpeg",
-            tag:["ristorante", "dolce"]
-    });
     res.json(post)
 })
 
