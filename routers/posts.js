@@ -89,8 +89,12 @@ router.get('/:id/', (req, res)=>{
 //creare un nuovo elemento
 //store
 router.post('/',(req, res)=>{
+    const ultimoOggetto =  post[post.length - 1];
+    //console.log((ultimoOggetto.id)+1);
+    
+    
     post.push({
-            id: 6,
+            id: (ultimoOggetto.id)+1,
             titolo:"Tiramisu",
             contenuto:"tiramisuuu",
             immagine:"images/ciambellone.jpeg",
